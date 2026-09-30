@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub & Vercel Project Deployment Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.55;
+      font-size: 13.5px;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 24px 28px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      border-left: 6px solid #d4af37;
+    }
+    .header-banner h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      color: #f8fafc;
+    }
+    .header-banner p {
+      margin: 0;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .meta-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 10px;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid #d4af37;
+      color: #fef08a;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h2 {
+      color: #0f172a;
+      font-size: 17px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 12px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+    p, ul, ol {
+      margin: 0 0 10px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    code {
+      font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 8px 0 16px 0;
+      border-left: 4px solid #3b82f6;
+      page-break-inside: avoid;
+    }
+    pre .comment {
+      color: #64748b;
+      font-style: italic;
+    }
+    pre .cmd {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    pre .val {
+      color: #a7f3d0;
+    }
+    .note-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid #3b82f6;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 12.5px;
+      color: #1e3a8a;
+      page-break-inside: avoid;
+    }
+    .alert-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 12.5px;
+      color: #78350f;
+      page-break-inside: avoid;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 12.5px;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #334155;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      background: #e0f2fe;
+      color: #0369a1;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      color: #94a3b8;
+      font-size: 11px;
+    }
+    .section-block {
+      page-break-inside: avoid;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>Universal Project Deployment Guide</h1>
+    <p>Standard Operating Procedure: Pushing Any Codebase to GitHub &amp; Live Deployment on Vercel</p>
+    <span class="meta-tag">Universal Reference Manual</span>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">1</span> Security &amp; Cleanliness: Setup <code>.gitignore</code></h2>
+    <p>Before initializing or staging files, always prevent secret keys, credentials, and bulky dependency folders from leaking into public repositories.</p>
+    <p>Create a file named <code>.gitignore</code> in your project root directory:</p>
+    <pre><span class="comment"># Dependencies</span>
+node_modules/
+
+<span class="comment"># Production build output</span>
+dist/
+build/
+.output/
+
+<span class="comment"># Environment secrets &amp; API keys (CRITICAL)</span>
+.env
+.env.*
+!.env.example
+
+<span class="comment"># System &amp; IDE artifacts</span>
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/</pre>
+    <div class="alert-box">
+      <strong>Important:</strong> Always commit an empty <code>.env.example</code> with placeholder variable names so collaborators know which environment keys are required without exposing real credentials.
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">2</span> Pushing Code to GitHub</h2>
+    <p>Open your command line / terminal inside the project root folder and execute the standard sequence:</p>
+    <pre><span class="comment"># 1. Initialize local repository and set default branch</span>
+<span class="cmd">git init</span>
+<span class="cmd">git branch -M main</span>
+
+<span class="comment"># 2. Configure Git author identity (if not already set globally)</span>
+<span class="cmd">git config user.name</span> <span class="val">"YourGitHubUsername"</span>
+<span class="cmd">git config user.email</span> <span class="val">"your-email@users.noreply.github.com"</span>
+
+<span class="comment"># 3. Stage all files and verify clean tree</span>
+<span class="cmd">git add .</span>
+<span class="cmd">git status</span>
+
+<span class="comment"># 4. Commit files</span>
+<span class="cmd">git commit -m</span> <span class="val">"Initial commit: Project source and architecture"</span>
+
+<span class="comment"># 5. Link to your empty GitHub repository and push</span>
+<span class="cmd">git remote add origin</span> <span class="val">https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git</span>
+<span class="cmd">git push -u origin main</span></pre>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">3</span> Configure SPA Routing for Vercel (<code>vercel.json</code>)</h2>
+    <p>For modern Single Page Applications (Vite, React, Vue, Svelte), create a <code>vercel.json</code> in the project root to prevent <strong>404 Not Found</strong> errors when refreshing sub-routes:</p>
+    <pre>{
+  <span class="val">"framework"</span>: <span class="val">"vite"</span>,
+  <span class="val">"buildCommand"</span>: <span class="val">"npm run build"</span>,
+  <span class="val">"outputDirectory"</span>: <span class="val">"dist"</span>,
+  <span class="val">"cleanUrls"</span>: true,
+  <span class="val">"rewrites"</span>: [
+    {
+      <span class="val">"source"</span>: <span class="val">"/(.*)"</span>,
+      <span class="val">"destination"</span>: <span class="val">"/index.html"</span>
+    }
+  ]
+}</pre>
+    <div class="note-box">
+      <strong>Tip for Pure Static HTML:</strong> If your project uses raw HTML without a build tool like Vite, omit <code>buildCommand</code> and set <code>outputDirectory</code> to <code>"."</code>.
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">4</span> Connecting to Vercel</h2>
+    <ol>
+      <li>Log in to your account at <a href="https://vercel.com">vercel.com</a>.</li>
+      <li>Click <strong>"Add New..."</strong> &rarr; <strong>"Project"</strong>.</li>
+      <li>Under <strong>Import Git Repository</strong>, choose your repository and click <strong>Import</strong>.</li>
+      <li>Vercel automatically detects the framework (e.g. <strong>Vite</strong>) with build command <code>npm run build</code> and output directory <code>dist</code>.</li>
+      <li>If using environment variables (e.g., Database connection or API tokens), add them under <strong>Environment Variables</strong>.</li>
+      <li>Click <strong>Deploy</strong>.</li>
+    </ol>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">5</span> Ongoing Development &amp; Continuous Deployment (CI/CD)</h2>
+    <p>Once connected, you never need to manually upload files again. Any push to the <code>main</code> branch triggers an automatic production build:</p>
+    <pre><span class="cmd">git add .</span>
+<span class="cmd">git commit -m</span> <span class="val">"Add new feature or layout improvements"</span>
+<span class="cmd">git push origin main</span></pre>
+    <p>Vercel detects the push, runs the build command, and publishes the new version live in seconds.</p>
+  </div>
+
+  <div class="section-block">
+    <h2><span class="step-num">6</span> Quick Reference Cheat Sheet</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Workflow Step</th>
+          <th>Command / Action</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Local Preview</strong></td>
+          <td><code>npm run dev</code> or <code>npm run preview</code></td>
+          <td>Test locally before pushing</td>
+        </tr>
+        <tr>
+          <td><strong>Test Production Build</strong></td>
+          <td><code>npm run build</code></td>
+          <td>Verifies no build errors in <code>dist/</code></td>
+        </tr>
+        <tr>
+          <td><strong>Stage Changes</strong></td>
+          <td><code>git add .</code></td>
+          <td>Stages all modified files</td>
+        </tr>
+        <tr>
+          <td><strong>Commit Changes</strong></td>
+          <td><code>git commit -m "Message"</code></td>
+          <td>Creates version snapshot</td>
+        </tr>
+        <tr>
+          <td><strong>Deploy Live</strong></td>
+          <td><code>git push origin main</code></td>
+          <td>Vercel deploys immediately</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span>Universal Web Deployment Guide &bull; GitHub &amp; Vercel</span>
+    <span>Auto-generated PDF Reference Manual</span>
+  </div>
+
+</body>
+</html>
