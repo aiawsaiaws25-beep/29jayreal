@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Real Estate | Luxury Dubai Properties & Off-Plan Investments</title>
+  <meta name="description" content="Exclusive ready homes and off-plan investments across Dubai's most sought-after communities including Palm Jumeirah, Downtown, Dubai Marina, Business Bay, Dubai Hills, and JVC.">
+  
+  <!-- Google Fonts: Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Menu -->
+  <header id="main-header" class="header-transparent">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" id="header-logo">
+        <div class="logo-wrap logo-white">
+          <span class="logo-title">J A Y</span>
+          <div class="logo-gold-line"></div>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#properties" class="nav-link" data-page="properties">Properties</a>
+        <a href="#off-plan" class="nav-link" data-page="off-plan">Off-Plan</a>
+        <a href="#calculator" class="nav-link" data-page="calculator">Mortgage Calculator</a>
+        <a href="#sell" class="nav-link" data-page="sell">Sell</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
+        <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="header-actions">
+        <a href="#admin" class="admin-login-link" title="Staff & Agent Portal">
+          <span>PORTAL</span>
+        </a>
+        <button class="btn btn-outline btn-sm register-btn" id="btn-open-register">
+          Register Interest
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Full-screen Navigation Menu -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo-wrap logo-white">
+        <span class="logo-title">J A Y</span>
+        <div class="logo-gold-line"></div>
+        <span class="logo-subtitle">REAL ESTATE</span>
+      </div>
+      <button class="mobile-close-btn" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-menu-body">
+      <a href="#home" class="mobile-nav-link" data-page="home">Home</a>
+      <a href="#properties" class="mobile-nav-link" data-page="properties">Ready Properties</a>
+      <a href="#off-plan" class="mobile-nav-link" data-page="off-plan">Off-Plan Projects</a>
+      <a href="#calculator" class="mobile-nav-link" data-page="calculator">Mortgage Calculator</a>
+      <a href="#sell" class="mobile-nav-link" data-page="sell">Sell Your Property</a>
+      <a href="#about" class="mobile-nav-link" data-page="about">About Jay Real Estate</a>
+      <a href="#contact" class="mobile-nav-link" data-page="contact">Private Client Desk</a>
+      <a href="#admin" class="mobile-nav-link" data-page="admin" style="color: var(--color-gold);">Staff & Agent Portal</a>
+      <div class="mobile-menu-footer">
+        <button class="btn btn-gold btn-block" id="mobile-register-btn">Register Interest</button>
+        <p class="mobile-contact-info">DIFC Gate Village, Level 8, Dubai, UAE</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION VIEW CONTAINER (Multi-Page SPA) -->
+  <main id="app-view">
+    <!-- Pages rendered dynamically via main.js router -->
+  </main>
+
+  <!-- Floating Luxury Action Widgets (On Every Page) -->
+  <aside class="floating-actions" aria-label="Quick contact actions">
+    <!-- Floating "Call Me Back" Button -->
+    <button class="floating-btn call-back-btn" id="floating-call-back-btn" title="Request VIP Callback">
+      <span class="pulse-dot"></span>
+      <span class="floating-btn-text">CALL ME BACK</span>
+    </button>
+    
+    <!-- Floating WhatsApp Button -->
+    <button class="floating-btn whatsapp-btn" id="floating-whatsapp-btn" title="Direct WhatsApp Concierge">
+      <svg class="wa-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+        <path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.77.464 3.494 1.345 5.019L2 22l5.127-1.344a10.01 10.01 0 0 0 4.904 1.28h.005c5.535 0 10.03-4.496 10.03-10.031 0-2.68-1.043-5.199-2.937-7.093A9.96 9.96 0 0 0 12.031 2zm0 18.367h-.004a8.318 8.318 0 0 1-4.238-1.161l-.304-.18-3.146.825.84-3.067-.198-.315a8.327 8.327 0 0 1-1.277-4.438c0-4.595 3.738-8.334 8.336-8.334a8.27 8.27 0 0 1 5.894 2.443 8.273 8.273 0 0 1 2.442 5.895c0 4.596-3.738 8.332-8.344 8.332zm4.568-6.236c-.25-.125-1.48-.73-1.709-.813-.229-.083-.396-.125-.562.125-.167.25-.646.813-.792.98-.146.166-.292.187-.542.062s-1.057-.39-2.014-1.242a7.54 7.54 0 0 1-1.393-1.728c-.146-.25-.016-.385.109-.51.112-.112.25-.292.375-.438s.167-.25.25-.417c.083-.167.042-.313-.021-.438s-.562-1.354-.771-1.854c-.203-.487-.41-.42-.562-.428l-.479-.008c-.167 0-.438.062-.667.313s-.875.854-.875 2.083.896 2.417 1.021 2.583c.125.167 1.764 2.694 4.274 3.777.597.258 1.064.412 1.428.528.6.191 1.146.164 1.578.099.481-.072 1.48-.604 1.688-1.188.208-.583.208-1.083.146-1.188-.063-.104-.229-.166-.479-.291z"/>
+      </svg>
+      <span class="floating-btn-text">WHATSAPP</span>
+    </button>
+  </aside>
+
+  <!-- Simple Dark Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- White Logo for Dark Background -->
+        <div class="footer-brand">
+          <div class="logo-wrap logo-white">
+            <span class="logo-title">J A Y</span>
+            <div class="logo-gold-line"></div>
+            <span class="logo-subtitle">REAL ESTATE</span>
+          </div>
+          <p class="footer-tagline">
+            Dubai's premier luxury real estate advisory for distinguished global investors and homeowners.
+          </p>
+          <div class="db-status-badge" id="db-status-badge">
+            <span class="status-indicator"></span>
+            <span class="status-text">Database Connected</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="footer-column">
+          <span class="footer-heading">NAVIGATION</span>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#properties">Ready Properties</a></li>
+            <li><a href="#off-plan">Off-Plan Projects</a></li>
+            <li><a href="#calculator">Mortgage Calculator</a></li>
+            <li><a href="#sell">Sell Your Property</a></li>
+            <li><a href="#about">About Jay Real Estate</a></li>
+            <li><a href="#admin" style="color: var(--color-gold);">Staff & Agent Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Dubai Communities -->
+        <div class="footer-column">
+          <span class="footer-heading">COMMUNITIES</span>
+          <ul class="footer-links">
+            <li><a href="#properties" data-filter-community="Palm Jumeirah">Palm Jumeirah</a></li>
+            <li><a href="#properties" data-filter-community="Downtown">Downtown Dubai</a></li>
+            <li><a href="#properties" data-filter-community="Dubai Marina">Dubai Marina</a></li>
+            <li><a href="#properties" data-filter-community="Business Bay">Business Bay</a></li>
+            <li><a href="#properties" data-filter-community="Dubai Hills">Dubai Hills Estate</a></li>
+            <li><a href="#properties" data-filter-community="JVC">Jumeirah Village Circle (JVC)</a></li>
+          </ul>
+        </div>
+
+        <!-- Private Client Services -->
+        <div class="footer-column">
+          <span class="footer-heading">PRIVATE SERVICES</span>
+          <ul class="footer-links">
+            <li><a href="#sell">Confidential Off-Market Sales</a></li>
+            <li><a href="#calculator">Mortgage Advisory in AED</a></li>
+            <li><a href="#sell">Complimentary Property Valuation</a></li>
+            <li><a href="#contact">UAE 10-Year Golden Visa</a></li>
+            <li><a href="#contact">Private Client Desk</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>&copy; 2026 Jay Real Estate LLC. All Rights Reserved. Regulated by Dubai Real Estate Regulatory Authority (RERA).</p>
+          <p class="footer-disclaimer">All property renderings and mockups are for conceptual showcase purposes.</p>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#about">About</a>
+          <span class="footer-dot">•</span>
+          <a href="#contact">Contact</a>
+          <span class="footer-dot">•</span>
+          <a href="#admin">Agent Sign In</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Register Interest Modal -->
+  <div class="modal-overlay" id="register-modal">
+    <div class="modal-container modal-container-sm">
+      <button class="modal-close-btn" id="register-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body register-modal-content">
+        <div class="logo-wrap logo-charcoal modal-logo">
+          <span class="logo-title">J A Y</span>
+          <div class="logo-gold-line"></div>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+        <span class="section-label center-label">VIP ALLOCATIONS</span>
+        <h3 class="modal-title">Register Your Interest</h3>
+        <p class="modal-desc">Receive off-market listings and priority off-plan allocations across Dubai.</p>
+        
+        <form id="register-interest-form" class="luxury-form">
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+          
+          <div class="form-group">
+            <label class="form-label">FULL NAME <span class="req">*</span></label>
+            <input type="text" name="full_name" class="form-input" placeholder="e.g. Lord Alexander Wright" required minlength="2">
+          </div>
+          <div class="form-group">
+            <label class="form-label">PHONE NUMBER / WHATSAPP <span class="req">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="+971 50 000 0000" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">BUYER TIMEFRAME</label>
+            <select name="timeframe" class="form-select">
+              <option value="Immediate (Under 1 month)">Immediate (Under 1 Month) (Ready to Purchase)</option>
+              <option value="1-3 months">1-3 Months</option>
+              <option value="3-6 months">3-6 Months</option>
+              <option value="Browsing">Browsing / Future</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PAYMENT METHOD</label>
+            <select name="is_cash_buyer" class="form-select">
+              <option value="true">100% Cash / Liquid Capital</option>
+              <option value="false">Bank Mortgage / Financing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PREFERRED COMMUNITY</label>
+            <select name="preferred_community" class="form-select">
+              <option value="Palm Jumeirah">Palm Jumeirah</option>
+              <option value="Downtown">Downtown Dubai</option>
+              <option value="Dubai Marina">Dubai Marina</option>
+              <option value="Business Bay">Business Bay</option>
+              <option value="Dubai Hills">Dubai Hills Estate</option>
+              <option value="JVC">JVC (High Yield)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">INVESTMENT BUDGET (AED)</label>
+            <select name="budget_aed" class="form-select">
+              <option value="5000000">AED 5,000,000 – AED 15,000,000</option>
+              <option value="15000000">AED 15,000,000 – AED 35,000,000</option>
+              <option value="35000000">AED 35,000,000 – AED 60,000,000</option>
+              <option value="60000000">AED 60,000,000+ (Ultra Prime)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Confirm Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIP "Call Me Back" Modal -->
+  <div class="modal-overlay" id="callback-modal">
+    <div class="modal-container modal-container-sm">
+      <button class="modal-close-btn" id="callback-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="logo-wrap logo-charcoal modal-logo">
+          <span class="logo-title">J A Y</span>
+          <div class="logo-gold-line"></div>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+        <span class="section-label center-label">PRIVATE CLIENT DESK</span>
+        <h3 class="modal-title">Request a VIP Call</h3>
+        <p class="modal-desc">A Senior Private Client Advisor will contact you within 15 minutes.</p>
+        
+        <form id="callback-form" class="luxury-form">
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+          
+          <div class="form-group">
+            <label class="form-label">YOUR NAME <span class="req">*</span></label>
+            <input type="text" name="full_name" class="form-input" placeholder="Full name" required minlength="2">
+          </div>
+          <div class="form-group">
+            <label class="form-label">PHONE NUMBER (WITH COUNTRY CODE) <span class="req">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="+971 58 000 0000" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CONVENIENT TIME</label>
+            <select name="preferred_time" class="form-select">
+              <option value="Immediately (Within 15 mins)">Immediately (Within 15 mins)</option>
+              <option value="Morning (09:00 - 12:00)">Morning (09:00 - 12:00)</option>
+              <option value="Afternoon (12:00 - 17:00)">Afternoon (12:00 - 17:00)</option>
+              <option value="Evening (17:00 - 20:00)">Evening (17:00 - 20:00)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Request Call Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Brochure Modal -->
+  <div class="modal-overlay" id="brochure-modal">
+    <div class="modal-container modal-container-sm">
+      <button class="modal-close-btn" id="brochure-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="logo-wrap logo-charcoal modal-logo">
+          <span class="logo-title">J A Y</span>
+          <div class="logo-gold-line"></div>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+        <span class="section-label center-label">OFF-PLAN DOSSIER</span>
+        <h3 class="modal-title" id="brochure-project-title">Download Project Brochure</h3>
+        <p class="modal-desc">Access architectural floorplans, milestone payment plans, and unit allocations.</p>
+        
+        <form id="brochure-form" class="luxury-form">
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="project_id" id="brochure-project-id" value="">
+          
+          <div class="form-group">
+            <label class="form-label">FULL NAME <span class="req">*</span></label>
+            <input type="text" name="full_name" class="form-input" placeholder="Your name" required minlength="2">
+          </div>
+          <div class="form-group">
+            <label class="form-label">WHATSAPP / MOBILE <span class="req">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="+971 50 000 0000" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">INVESTMENT PROFILE</label>
+            <select name="investor_type" class="form-select">
+              <option value="Private Investor (High ROI)">Private Investor (High ROI)</option>
+              <option value="End-User / Family Home">End-User / Family Home</option>
+              <option value="International Family Office">International Family Office</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Unlock Full Dossier & Brochure</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Won Deal Modal (Sale Price & 2% Commission Calculation) -->
+  <div class="modal-overlay" id="won-deal-modal">
+    <div class="modal-container modal-container-sm">
+      <button class="modal-close-btn" id="won-deal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body won-deal-modal-body">
+        <div class="success-icon-badge">🏆</div>
+        <span class="section-label center-label" style="margin-top: 1rem;">DEAL CLOSING</span>
+        <h3 class="modal-title">Mark Deal as Won</h3>
+        <p class="modal-desc" id="won-deal-subtitle">Enter the finalized sale price to generate the commission record and mark the property as sold.</p>
+
+        <form id="won-deal-form" class="luxury-form">
+          <input type="hidden" id="won-lead-id" value="">
+          
+          <div class="form-group">
+            <label class="form-label">FINAL SALE PRICE (AED) <span class="req">*</span></label>
+            <input type="number" id="won-sale-price" class="form-input won-deal-price-input" placeholder="e.g. 35000000" required min="100000" step="50000">
+          </div>
+
+          <div class="commission-preview-box">
+            <div style="font-size: 0.72rem; letter-spacing: 0.15em; color: var(--color-warm-gray); text-transform: uppercase;">2% AGENCY COMMISSION EARNED</div>
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; color: var(--color-gold); margin-top: 0.25rem;" id="won-commission-preview">
+              AED 0
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-warm-gray); margin-top: 0.25rem;">Standard Dubai Real Estate Market Commission</div>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block">Confirm Won Sale & Log Commission</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Property Modal (CRUD) -->
+  <div class="modal-overlay" id="property-crud-modal">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="property-crud-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body" style="padding: 2.5rem;">
+        <span class="section-label" id="crud-modal-label">INVENTORY MANAGEMENT</span>
+        <h3 class="modal-title" id="crud-modal-title" style="text-align: left; margin-bottom: 1.5rem;">Add New Luxury Property</h3>
+
+        <form id="property-crud-form" class="luxury-form">
+          <input type="hidden" id="crud-prop-id" value="">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">PROPERTY TITLE <span class="req">*</span></label>
+              <input type="text" id="crud-title" class="form-input" placeholder="e.g. The Royal Crestline Mansion" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">COMMUNITY / LOCATION <span class="req">*</span></label>
+              <select id="crud-location" class="form-select">
+                <option value="Palm Jumeirah">Palm Jumeirah</option>
+                <option value="Downtown">Downtown Dubai</option>
+                <option value="Dubai Marina">Dubai Marina</option>
+                <option value="Business Bay">Business Bay</option>
+                <option value="Dubai Hills">Dubai Hills Estate</option>
+                <option value="JVC">JVC</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">PROPERTY TYPE <span class="req">*</span></label>
+              <select id="crud-type" class="form-select">
+                <option value="Villa">Villa</option>
+                <option value="Mansion">Mansion</option>
+                <option value="Penthouse">Penthouse</option>
+                <option value="Duplex">Duplex</option>
+                <option value="Apartment">Apartment</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">PRICE (AED) <span class="req">*</span></label>
+              <input type="number" id="crud-price" class="form-input" placeholder="e.g. 28000000" required min="100000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">STATUS</label>
+              <select id="crud-status" class="form-select">
+                <option value="Ready">Ready</option>
+                <option value="Under Offer">Under Offer</option>
+                <option value="Sold">Sold</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">BEDROOMS</label>
+              <input type="number" id="crud-bedrooms" class="form-input" placeholder="e.g. 5" min="1" max="15" value="4">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">BATHROOMS</label>
+              <input type="number" id="crud-bathrooms" class="form-input" placeholder="e.g. 6" min="1" max="15" value="5">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">BUA AREA (SQ FT)</label>
+              <input type="number" id="crud-area" class="form-input" placeholder="e.g. 7500" value="6500">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">IMAGE URL (HIGH RES)</label>
+              <input type="url" id="crud-image" class="form-input" placeholder="https://images.unsplash.com/..." value="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85">
+            </div>
+
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">DESCRIPTION</label>
+              <textarea id="crud-desc" class="form-textarea" placeholder="Architectural description..."></textarea>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-gold" style="flex-grow: 1;">Save Property</button>
+            <button type="button" class="btn btn-outline-dark" id="crud-cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thank You / Success Modal -->
+  <div class="modal-overlay" id="thankyou-modal">
+    <div class="modal-container modal-container-sm" style="text-align: center;">
+      <button class="modal-close-btn" id="thankyou-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="success-icon-badge">✓</div>
+        <span class="section-label center-label" style="margin-top: 1rem;">CONFIDENTIAL ADVISORY</span>
+        <h3 class="modal-title" id="thankyou-title">Request Received</h3>
+        <div class="gold-separator" style="margin: 1rem auto;"></div>
+        <p class="modal-desc" id="thankyou-message">
+          Thank you. A Jay Real Estate advisor will contact you within 24 hours.
+        </p>
+        <button class="btn btn-charcoal" id="thankyou-ok-btn" style="min-width: 180px;">Continue Browsing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast">
+    <div class="toast-content">
+      <div class="toast-icon">✓</div>
+      <div class="toast-message" id="toast-message">Thank you. A Jay Real Estate advisor will contact you within 24 hours.</div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Application -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
